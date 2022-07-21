@@ -1,26 +1,29 @@
+package com.dvd.rent.model;
+
 import java.util.Enumeration;
 import java.util.Vector;
 
+//TODO
 public class Customer {
-    private String _name;
+    private String name;
 
-    private Vector _rentals = new Vector();
+    private Vector rentals = new Vector();
     public Customer(String name) {
-        _name = name;
+        this.name = name;
     }
 
     public void addRental(Rental arg) {
-        _rentals.addElement(arg);
+        rentals.addElement(arg);
     }
 
     public String getName() {
-        return _name;
+        return name;
     }
 
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Enumeration rentals = _rentals.elements();
+        Enumeration rentals = this.rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
